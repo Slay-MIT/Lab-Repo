@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JavaScript Functions</title>
+    <script type="text/javascript">
+        // Function to find the position of the left-most vowel in a string
+        function findLeftMostVowelPosition(inputString) {
+            var vowels = "aeiouAEIOU";
+            
+            for (var i = 0; i < inputString.length; i++) {
+                if (vowels.indexOf(inputString[i]) !== -1) {
+                    return i + 1; // Return position (1-based index)
+                }
+            }
+
+            return -1; // Return -1 if no vowel is found
+        }
+
+        // Function to reverse the digits of a number
+        function reverseDigits(inputNumber) {
+            var reversedNumber = parseInt(inputNumber.toString().split("").reverse().join(""), 10);
+            return reversedNumber;
+        }
+
+        // Function to demonstrate the problems
+        function demonstrateProblems() {
+            // Problem 1: Find the position of the left-most vowel in a string
+            var stringInput = prompt("Enter a string:");
+            var vowelPosition = findLeftMostVowelPosition(stringInput);
+            alert("The position of the left-most vowel in the string is: " + vowelPosition);
+
+            // Problem 2: Reverse the digits of a number
+            var numberInput = prompt("Enter a number:");
+            var reversedNumber = reverseDigits(numberInput);
+            alert("The number with its digits in reverse order is: " + reversedNumber);
+        }
+    </script>
+</head>
+<body>
+    <h2>JavaScript Functions</h2>
+    <button onclick="demonstrateProblems()">Demonstrate Problems</button>
+</body>
+</html>

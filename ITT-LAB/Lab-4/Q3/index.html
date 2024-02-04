@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Stacked Paragraphs</title>
+    <style type="text/css">
+        .stacked-paragraph {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: z-index 0.3s;
+        }
+    </style>
+    <script type="text/javascript">
+        // Function to bring a paragraph to the top
+        function bringToTop(paragraphId) {
+            var paragraphs = document.getElementsByClassName("stacked-paragraph");
+
+            for (var i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.zIndex = "1";
+            }
+
+            document.getElementById(paragraphId).style.zIndex = "2";
+        }
+
+        // Function to handle mouse over event
+        function handleMouseOver(paragraphId) {
+            bringToTop(paragraphId);
+        }
+
+        // Function to handle mouse click event (moving the paragraph)
+        function handleMouseDown(paragraphId, event) {
+            var paragraph = document.getElementById(paragraphId);
+
+            // Get the initial mouse position
+            var initialMouseX = event.clientX;
+            var initialMouseY = event.clientY;
+
+            // Get the initial position of the paragraph
+            var initialParagraphX = paragraph.offsetLeft;
+            var initialParagraphY = paragraph.offsetTop;
+
+            // Function to handle mouse move event
+            function handleMouseMove(moveEvent) {
+                // Calculate the new position of the paragraph based on mouse movement
+                var newParagraphX = initialParagraphX + (moveEvent.clientX - initialMouseX);
+                var newParagraphY = initialParagraphY + (moveEvent.clientY - initialMouseY);
+
+                // Update the position of the paragraph
+                paragraph.style.left = newParagraphX + "px";
+                paragraph.style.top = newParagraphY + "px";
+            }
+
+            // Function to handle mouse up event (stop dragging)
+            function handleMouseUp() {
+                document.removeEventListener("mousemove", handleMouseMove);
+                document.removeEventListener("mouseup", handleMouseUp);
+
+                // Move the paragraph back to its original stacking position
+                bringToTop(paragraphId);
+            }
+
+            // Add event listeners for mouse move and mouse up events
+            document.addEventListener("mousemove", handleMouseMove);
+            document.addEventListener("mouseup", handleMouseUp);
+
+            // Bring the paragraph to the top during dragging
+            paragraph.style.zIndex = "3";
+        }
+    </script>
+</head>
+<body>
+    <div id="paragraph1" class="stacked-paragraph" onmouseover="handleMouseOver('paragraph1')" onmousedown="handleMouseDown('paragraph1', event)">
+        <p>Paragraph 1: This is some text.</p>
+    </div>
+
+    <div id="paragraph2" class="stacked-paragraph" onmouseover="handleMouseOver('paragraph2')" onmousedown="handleMouseDown('paragraph2', event)">
+        <p>Paragraph 2: More text here.</p>
+    </div>
+
+    <div id="paragraph3" class="stacked-paragraph" onmouseover="handleMouseOver('paragraph3')" onmousedown="handleMouseDown('paragraph3', event)">
+        <p>Paragraph 3: Additional text.</p>
+    </div>
+</body>
+</html>
