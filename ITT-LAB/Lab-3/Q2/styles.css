@@ -1,0 +1,45 @@
+body{
+    background: linear-gradient(to top, #7BD389, #343E3D);
+    margin: 0; /* Remove default body margin */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#textbox,
+#pigtext {
+    background-color: #7BD389;
+    display: inline-block; /* Set to inline-block to place them next to each other */
+    margin: 10px; /* Add some margin for spacing */
+    width: 150px; /* Adjust the width as needed */
+    height: 50px;
+    outline: #343E3D;
+    border: 2px solid #343E3D;
+    border-radius: 10px;
+    font-size: 19px;
+    font-family: 'Sixtyfour', sans-serif;
+    color: #343E3D;
+}
+
+
+#enterbutt{
+    background-color: #7BD389;
+    display: block;
+    margin: 25px auto auto auto;
+    width: 75px;
+    height: 25px;
+    outline: #343E3D;
+    border: 2px solid #343E3D;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: 'Sixtyfour', sans-serif;
+    color: #343E3D;
+    cursor:pointer;
+}
+
+#enterbutt:active {
+    background-color: #343E3D; /* Change background color on click */
+    color: #7BD389; /* Change text color on click */
+}

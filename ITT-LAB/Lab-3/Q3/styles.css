@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to bottom, #E4B7E5, #9A48D0);
+    margin: 0;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#number {
+    background-color: #B288C0;
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    height: 50px;
+    outline: #63458A;
+    border: 2px solid #63458A;
+    border-radius: 10px;
+    font-size: 19px;
+    font-family: 'Sixtyfour', sans-serif;
+    color: #63458A;
+}
+
+#output{
+    text-align: center;
+    font-size: 19px;
+    font-family: 'Sixtyfour', sans-serif;
+    color: #63458A;
+}
+
+#para{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+#enter{
+    background-color: #B288C0;
+    display: block;
+    margin: 25px auto auto auto;
+    width: 75px;
+    height: 25px;
+    outline: #63458A;
+    border: 2px solid #63458A;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: 'Sixtyfour', sans-serif;
+    color: #63458A;
+    cursor:pointer;
+}
+#enter:active {
+    background-color: #343E3D; /* Change background color on click */
+    color: #7BD389; /* Change text color on click */
+}
