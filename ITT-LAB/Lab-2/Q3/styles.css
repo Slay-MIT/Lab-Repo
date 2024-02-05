@@ -1,0 +1,15 @@
+/* External Style Sheet */
+.styled-table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.styled-table th, .styled-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Color Survey Results</title>
+
+    <script>
+        let votes = {
+            red: 1,
+            blue: 1,
+            green: 1,
+            yellow: 1,
+            orange: 1
+        };
+
+        let lastColorPicked = 'red';
+
+        function updateResults() {
+            const totalVotes = Object.values(votes).reduce((sum, vote) => sum + vote, 0);
+
+            for (const color in votes) {
+                const percentage = ((votes[color] / totalVotes) * 100).toFixed(2) + "%";
+                document.getElementById(color + "-percentage").textContent = percentage;
+            }
+        }
+
+        function submitForm() {
+            const selectedColor = document.querySelector('input[name="color"]:checked').value;
+            votes[selectedColor]++;
+            updateResults();
+            lastColorPicked = selectedColor;
+            document.getElementById("color-survey-form").reset();
+            document.getElementById(lastColorPicked).checked = true;
+            return false;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Color Survey</h1>
+
+    <form id="color-survey-form">
+        <p>Vote for your favorite color:</p>
+
+        <input type="radio" name="color" id="red" value="red" />
+        <label for="red">Red</label>
+
+        <input type="radio" name="color" id="blue" value="blue" />
+        <label for="blue">Blue</label>
+
+        <input type="radio" name="color" id="green" value="green" />
+        <label for="green">Green</label>
+
+        <input type="radio" name="color" id="yellow" value="yellow" />
+        <label for="yellow">Yellow</label>
+
+        <input type="radio" name="color" id="orange" value="orange" />
+        <label for="orange">Orange</label>
+
+        <input type="submit" value="Vote" onclick="return submitForm()" />
+    </form>
+
+    <h2>Survey Results</h2>
+
+    <table border="1" width="50%" cellspacing="5">
+        <tr>
+            <th>Color</th>
+            <th>Percentage of Votes</th>
+        </tr>
+        <tr>
+            <td style="background-color: red;">Red</td>
+            <td id="red-percentage">20%</td>
+        </tr>
+        <tr>
+            <td style="background-color: blue;">Blue</td>
+            <td id="blue-percentage">20%</td>
+        </tr>
+        <tr>
+            <td style="background-color: green;">Green</td>
+            <td id="green-percentage">20%</td>
+        </tr>
+        <tr>
+            <td style="background-color: yellow;">Yellow</td>
+            <td id="yellow-percentage">20%</td>
+        </tr>
+        <tr>
+            <td style="background-color: orange;">Orange</td>
+            <td id="orange-percentage">20%</td>
+        </tr>
+    </table>
+
+    <script>
+        updateResults();
+        document.getElementById(lastColorPicked).checked = true;
+    </script>
+
+</body>
+</html>
