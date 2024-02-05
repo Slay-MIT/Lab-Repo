@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salespeople Salaries</title>
+    <style>
+        body{
+            display: flex;
+        justify-content: center;
+        align-items: center !important;
+        font-family: Arial, sans-serif;
+        font-size: 1.2rem !important;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function calculateSalary(grossSales) {
+            const baseSalary = 200;
+            const commissionRate = 0.09;
+            const totalSalary = baseSalary + (grossSales * commissionRate);
+            return Math.floor(totalSalary);
+        }
+
+        function categorizeSalaries(salaries) {
+            const salaryRanges = {
+                '1': { min: 300, max: 399, count: 0 },
+                '2': { min: 400, max: 499, count: 0 },
+                '3': { min: 500, max: 599, count: 0 },
+                '4': { min: 600, max: 699, count: 0 },
+                '5': { min: 700, max: 799, count: 0 },
+                '6': { min: 800, max: 899, count: 0 },
+                '7': { min: 900, max: 999, count: 0 },
+                '8': { min: 1000, max: Infinity, count: 0 }
+            };
+
+            salaries.forEach(salary => {
+                for (const range in salaryRanges) {
+                    const { min, max } = salaryRanges[range];
+                    if (salary >= min && salary <= max) {
+                        salaryRanges[range].count++;
+                        break;
+                    }
+                }
+            });
+
+            return salaryRanges;
+        }
+
+        function displayResults(salaryRanges) {
+            const resultTable = document.createElement('table');
+            resultTable.border = '1';
+
+            const headerRow = resultTable.insertRow();
+            const headers = ['Range', 'Count'];
+            headers.forEach(headerText => {
+                const headerCell = document.createElement('th');
+                headerCell.textContent = headerText;
+                headerRow.appendChild(headerCell);
+            });
+
+            for (const range in salaryRanges) {
+                const { min, max, count } = salaryRanges[range];
+
+                const row = resultTable.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+
+                cell1.textContent = `${min}-${max}`;
+                cell2.textContent = count;
+            }
+
+            document.body.appendChild(resultTable);
+        }
+
+        const grossSalesData = [5000, 6000, 7000, 8000, 9000, 10000];
+        const salaries = grossSalesData.map(grossSales => calculateSalary(grossSales));
+        const salaryRanges = categorizeSalaries(salaries);
+        displayResults(salaryRanges);
+    </script>
+</body>
+</html>

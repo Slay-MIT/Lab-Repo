@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Charges</title>
+</head>
+<body>
+    <script>
+        function calculateCharges(hoursParked) {
+            const minimumFee = 2.00;
+            const additionalFeePerHour = 0.50;
+            const maximumHoursForMinimumFee = 3;
+
+            if (hoursParked <= maximumHoursForMinimumFee) {
+                return minimumFee;
+            } else {
+                const additionalHours = hoursParked - maximumHoursForMinimumFee;
+                const additionalFee = additionalHours * additionalFeePerHour;
+                return minimumFee + additionalFee;
+            }
+        }
+
+        function displayChargesAndCustomers() {
+            const customers = [];
+            const customerData = [];
+
+            const numCustomers = parseInt(prompt("Enter the number of customers:"));
+            
+            for (let i = 1; i <= numCustomers; i++) {
+                const hoursParked = parseFloat(prompt(`Enter the hours parked for Customer ${i}:`));
+                const charges = calculateCharges(hoursParked);
+                alert(`Customer ${i}: Parking charges Rs. ${charges.toFixed(2)}`);
+                customerData.push(`<tr><td>Customer ${i}</td><td>${hoursParked} hours</td><td>Rs. ${charges.toFixed(2)}</td></tr>`);
+
+                customers.push(`Customer ${i}`);
+            }
+            alert("Customers who parked on the previous day:\n" + customers.join(", "));
+            const finalTable = `
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Hours Parked</th>
+                            <th>Charges</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${customerData.join('')}
+                    </tbody>
+                </table>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', finalTable);
+        }
+        displayChargesAndCustomers();
+    </script>
+</body>
+</html>
