@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Elements Example</title>
+</head>
+<body>
+    <img id="imageElement" src="https://i.giphy.com/GeimqsH0TLDt4tScGw.webp" alt="MIT Image" style="cursor: pointer;">
+    <table id="tableElement" border="1" style="cursor: pointer;">
+        <tr>
+            <td>Click me! This is a table.</td>
+        </tr>
+    </table>
+
+    <script>
+        function handleImageClick(event) {
+            alert("You clicked the image.");
+            event.clickedImage = true;
+        }
+        function handleTableClick(event) {
+            alert("You clicked the table.");
+            event.clickedTable = true;
+        }
+        const imageElement = document.getElementById('imageElement');
+        const tableElement = document.getElementById('tableElement');
+
+        imageElement.addEventListener('click', handleImageClick);
+        tableElement.addEventListener('click', handleTableClick);
+    </script>
+</body>
+</html>

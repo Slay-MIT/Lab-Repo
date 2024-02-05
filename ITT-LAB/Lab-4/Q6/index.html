@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Color</title>
+</head>
+<body>
+    <div class="text">Hello! This text's color should change. Try moving the cursor on the below listed colors!</div>
+    <div class="colors">
+        <div class="color" id="red" style="background-color: red;"></div>
+        <div class="color" id="green" style="background-color: green;"></div>
+        <div class="color" id="blue" style="background-color: blue;"></div>
+        <div class="color" id="yellow" style="background-color: yellow;"></div>
+        <div class="color" id="orange" style="background-color: orange;"></div>
+        <div class="color" id="purple" style="background-color: purple;"></div>
+        <div class="color" id="pink" style="background-color: pink;"></div>
+        <div class="color" id="brown" style="background-color: brown;"></div>
+        <div class="color" id="black" style="background-color: black;"></div>
+    </div>
+    <script>
+        var colors = document.querySelectorAll('.color');
+        colors.forEach(color => {
+            color.addEventListener('mouseover', () => {
+                document.querySelector('.text').style.color = color.style.backgroundColor;
+            });
+            color.addEventListener('mouseout', () => {
+                document.querySelector('.text').style.color = 'white';
+            });
+        });
+    </script>
+</body>
+</html>

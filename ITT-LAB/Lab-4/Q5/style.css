@@ -1,0 +1,145 @@
+body{
+    background-image:url(num_background.avif);
+    display:grid;
+    place-items:center;
+    height:100vh
+}
+#trailer{
+    height:50px;
+    width:50px;
+    background: linear-gradient(#91d4c6, #f7a2e5);
+    animation:rotate 10s infinite;
+    border-radius:50px;
+    position:fixed;
+    filter:blur(15px);
+    left:0px;
+    top:0px;
+    z-index:99;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 350ms ease;
+}
+@keyframes rotate{
+    from{
+        rotate:360deg;
+    }
+    25%{
+        scale: 1 1.3;
+    }
+    50%{
+        scale:1.15 1.15;
+    }
+    75%{
+        scale:1.3 1;
+    }
+    to{
+        rotate:0deg;
+    }
+}
+body:hover > #trailer{
+    opacity:1;
+    scale:1;
+}
+.btn:hover > #trailer{
+    opacity:0.1;
+    transform: scale(0.8);
+}
+body:hover > .center{
+    cursor:auto;
+}
+.main-grid-row{
+    margin-bottom:10px;
+}
+.center{
+    position:fixed;
+    z-index:1000;
+    padding:20px;
+    background-color: rgb(198, 214, 214);
+    border-radius:10px;
+}
+.btn{
+    margin-right:2px;
+    margin-left:2px;
+    overflow:hidden;
+}
+.main-grid .main-grid-row #num_btn{
+    background-color:rgb(105, 145, 145);
+    border-color:transparent;
+}
+.main-grid .main-grid-row #num_btn:hover{
+    background-color:rgb(104, 131, 131);
+}
+#op_btn{
+    background-color:rgb(182, 223, 59);
+    border-color:transparent;
+}
+#op_btn:hover{
+    background-color:rgb(150, 168, 96);
+    border-color:transparent;
+}
+@keyframes zoom {
+    from {
+      scale: 1;
+    }
+    to {
+      scale : 0.86;
+    }
+}
+@keyframes pulse{
+    from,to{
+        scale:1
+    }
+    50%{
+        scale:0.8
+    }
+}
+.zoom-animation {
+  animation: zoom 100ms ease-out;
+}
+.form-control{
+    margin-bottom:15px;
+    margin-left:2px;
+    margin-right:2px;
+    background-color: aliceblue;
+}
+.history{
+    position:fixed;
+    max-height:200px;
+    top:74%;
+    left:42%;
+    width:100%;
+    color:rgb(61, 137, 137);
+}
+.container{
+    width:20%;
+    position:fixed;
+    /* height: 0px; */
+}
+.log{
+    position:fixed;
+    --height: 35%;
+    top:calc(50% + var(--height) / 2);
+    width: 50%;
+    height: var(--height);
+    right: 25%;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+}
+#log{
+    overflow: scroll;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:10px
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" type="text/css"  href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="trailer"></div>
+    <div id="trailer_background"></div>
+    <div class="center">
+        <input type="input" class="form-control" id="expression" placeholder="Enter your expresesion" />
+        <div class="d-flex">
+            <div class="main-grid">
+                <div class="d-flex main-grid-row">
+                    <button id="num_btn" class="btn btn-primary flex-fill" onclick="input_number('7')" >&nbsp;7&nbsp;</button>
+                    <button id="num_btn" class="btn btn-primary flex-fill" onclick="input_number('8')" >&nbsp;8&nbsp;</button>
+                    <button id="num_btn" class="btn btn-primary flex-fill" onclick="input_number('9')" >&nbsp;9&nbsp;</button>
+                    <button id="op_btn" class="btn btn-warning flex-fill" onclick="input_number('/')" >&nbsp;/&nbsp;</button>
+                </div>
+                <div class="d-flex main-grid-row">
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('4')" >&nbsp;4&nbsp;</button>
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('5')" >&nbsp;5&nbsp;</button>
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('6')" >&nbsp;6&nbsp;</button>
+                    <button id="op_btn"class="btn btn-warning flex-fill" onclick="input_number('*')" >&nbsp;*&nbsp;</button>
+                </div>
+                <div class="d-flex main-grid-row">
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('1')" >&nbsp;1&nbsp;</button>
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('2')" >&nbsp;2&nbsp;</button>
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('3')" >&nbsp;3&nbsp;</button>
+                    <button id="op_btn"class="btn btn-warning flex-fill" onclick="input_number('-')" >&nbsp;-&nbsp;</button>
+                </div>
+                <div class="d-flex main-grid-row">
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('.')" >&nbsp;.&nbsp;&nbsp;</button>
+                    <button id="num_btn"class="btn btn-primary flex-fill" onclick="input_number('0')" >&nbsp;0&nbsp;</button>
+                    <button id="equal_btn"class="btn btn-success flex-fill" onclick="calculate()">=&nbsp;</button>
+                    <button id="op_btn"class="btn btn-warning flex-fill" onclick="input_number('+')" >&nbsp;+&nbsp;</button>
+                </div>
+            </div>
+            <div class=" d-flex flex-column align-items-stretch ">
+                <button id="btn" class="btn btn-danger flex-fill main-grid-row" onclick="delete_number()">&nbsp;DEL&nbsp;</button>
+                <button id="btn" class="btn btn-danger flex-fill main-grid-row" onclick="clearExpression()">&nbsp;AC&nbsp;</button>
+            </div>
+        </div>
+    </div>
+    <pre><h5>History</h5></pre>
+    <div class="history">
+        <ul id="log">
+        </ul> 
+    </div>
+</body>
+</html>

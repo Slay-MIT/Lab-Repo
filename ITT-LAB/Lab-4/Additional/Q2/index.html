@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event Example</title>
+</head>
+<body>
+    <script>
+        function handleClick(event) {
+            let message = 'Click event occurred';
+
+            if (event.shiftKey) {
+                message += ' with Shift key held';
+            }
+
+            if (event.ctrlKey) {
+                const targetElement = event.target.tagName.toLowerCase();
+                message += ` and Ctrl key held. Element: ${targetElement}`;
+            }
+
+            alert(message);
+        }
+        document.addEventListener('click', handleClick);
+    </script>
+</body>
+</html>
